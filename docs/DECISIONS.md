@@ -2,6 +2,46 @@
 Nejnovější nahoře. Každé rozhodnutí jednou; pozdější změna = nový záznam s odkazem na původní.
 Agent: sem zapisuj svá rozhodnutí a předpoklady (D-006 a dál). Předpoklad, který má David potvrdit, označ „předpoklad k potvrzení“.
 
+## D-019 · 2026-11-05 · Testy: `node --test tests/` přes `tests/index.js`
+- **Zjištění:** Node 22 nebere složku jako argument `--test` (hledá soubor). Proto `tests/index.js` načte všechny `tests/*.test.js` a příkaz z CLAUDE.md `node --test tests/` funguje beze změny.
+- **Pokrytí:** kapacita a náhradníci, souběh (simulovaný zámek a kontrolní test bez zámku, který přeplnění opravdu zachytí), pořadí zámek → čtení → zápis → uvolnění (i z kódu `Code.gs`), uzávěrka (půlnoc, přelom měsíce a roku, datum jako text i objekt), duplicita, validace, spam, výběr veřejných dat bez osobních údajů, selhání Telegramu (nefunkční token přes falešný `UrlFetchApp`) i e-mailu, české formáty webu.
+- **Kdo:** agent.
+
+## D-018 · 2026-11-05 · Návrh skriptu `apps-script/Code.gs`
+- **Rozhodnutí:**
+  - Logika jsou čisté funkce. Google služby dostává zpracování zvenku (objekt `s`), takže test ověří, že zámek obklopuje čtení i zápis.
+  - Zámek: `LockService.getScriptLock().tryLock(20000)`. Když se ho nepodaří získat, web dostane „zkus to znovu“. Upozornění se posílají až po uvolnění zámku a každé zvlášť v `try/catch` → list `Chyby`.
+  - Čtení listů `Podniky`, `Terminy`, `Vysledky` přes `getDisplayValues()` (text tak, jak ho vidí David). Tím se obchází posun časů u buněk s časem v tabulce. Objekt Date skript taky zvládne.
+  - Časy se porovnávají jako text `yyyy-MM-dd HH:mm` v pásmu `Europe/Prague`.
+  - Přípravná funkce nastaví tabulce české prostředí a pásmo Praha, formáty sloupců a rozbalovací volby (Ano/Ne, Otevřeno/Zrušeno, Potvrzeno/Náhradník/Zrušeno). Existující listy nepřepisuje.
+  - Ukázkové řádky s `id` začínajícím `vzor` web ignoruje.
+  - Mezipaměť veřejných dat 60 s, každá přihláška ji smaže (změna v tabulce se projeví do 1–2 min, K6).
+  - Ochrana tabulky: text začínající `= + - @` dostane apostrof, aby se nezapsal jako vzorec.
+  - Spam: skryté pole + minimální doba vyplnění 3 s (chybějící doba = odmítnuto).
+  - Odkaz na mapu jen `http(s)://`.
+  - E-mail týmu má „Odpovědět“ nastavené na `ORGANIZATOR_EMAIL`, aby odhlášení odpovědí došlo Davidovi.
+  - Menu „Kobla Kvíz“ v tabulce (příprava listů, zkouška e-mailu a Telegramu).
+- **Kdo:** agent.
+
+## D-017 · 2026-11-05 · Ověření faktů o Google a Telegramu
+- **Jak:** stránky developers.google.com a core.telegram.org nešly z prostředí přímo otevřít (síť je nepovoluje). Fakta jsem ověřil přes vyhledávač, který vrací úryvky z oficiálních stránek. Co nebylo v úryvcích, je označené jako **neověřeno ze zdroje** a prakticky se ověří na zastávkách 2 a 3.
+- **Ověřeno (úryvky oficiálních stránek):**
+  - nasazení *Deploy → New deployment → Web app* (developers.google.com/apps-script/guides/web),
+  - nová verze se stejnou adresou *Deploy → Manage deployments → Edit → Version: New version → Deploy* (…/concepts/deployments),
+  - odpověď ContentService se přesměruje na script.googleusercontent.com a klient musí přesměrování následovat (…/guides/content, „Redirects“),
+  - kvóta e-mailů 100 příjemců/den pro gmail.com, 1 500 pro Workspace (…/guides/services/quotas – vyhledávač ukázal i starší úryvek s jinými čísly, proto v NAVOD „zhruba 100“), `MailApp.getRemainingDailyQuota()`,
+  - LockService `tryLock` vrací true/false, `waitLock` vyhazuje výjimku,
+  - CacheService max 100 KB na hodnotu a max 6 h,
+  - Script Properties v *Project Settings → Script Properties → Add script property*,
+  - Telegram `/newbot` u @BotFather, `sendMessage` s `chat_id` a `text`.
+- **Neověřeno ze zdroje (z praxe a komunity):**
+  - GET z prohlížeče je čitelný přes CORS po přesměrování,
+  - POST s `Content-Type: text/plain` je bez předběžného dotazu a odpověď jde přečíst,
+  - chat ID se dá zjistit přes `getUpdates` v prohlížeči,
+  - přesné české popisky tlačítek v editoru.
+  Ověří se na zastávkách 2 a 3.
+- **Kdo:** agent.
+
 ## D-016 · 2026-11-05 · Logo, favicon a obrázek pro sdílení
 - **Rozhodnutí:** `assets/img/logo.svg` má text převedený na křivky (nástroj `opentype.js` mimo repozitář), takže nepotřebuje písmo a funguje i jako samostatný soubor. Favicon je kulatý bordó odznak s „K“ (`favicon.svg` + `favicon-32.png` + `apple-touch-icon.png`). Obrázek pro sdílení `sdileni.png` 1200×630. PNG jsem vyrobil přes Playwright (prohlížeč bez okna) mimo repozitář.
 - **Pozor:** `og:image` má pevnou adresu `https://frankie851.github.io/kobla-kviz/…`. Při vlastní doméně nebo přesunu na organizaci se musí změnit v hlavičkách stránek.

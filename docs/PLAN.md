@@ -23,11 +23,11 @@ Agent: po dokončení kroku ho odškrtni (☐ → ☑) a připiš datum. Pořad�
 - ☑ Kontrola na 390 / 768 / 1280 px (2026-11-05)
 
 ## Fáze 3 – Skript a návod
-- ☐ `apps-script/Code.gs`: příprava listů, veřejná data (GET), akce `prihlaska` a `hospoda` (POST), zámek, mezipaměť, e-maily, Telegram, list Chyby
-- ☐ Testy v `tests/` (kapacita, náhradník, souběh, uzávěrka, duplicita, validace, výběr veřejných dat bez osobních údajů, selhání Telegramu)
-- ☐ Ověřit z dokumentace: nasazení web app, volání z prohlížeče (CORS), denní limity e-mailů, chat ID u Telegramu — zjištění do DECISIONS.md
-- ☐ `NAVOD.md` (nastavení, zkušební přihláška, každodenní správa, časté problémy)
-- ☐ HANDOFF.md aktualizovat
+- ☑ `apps-script/Code.gs`: příprava listů, veřejná data (GET), akce `prihlaska` a `hospoda` (POST), zámek, mezipaměť, e-maily, Telegram, list Chyby (2026-11-05)
+- ☑ Testy v `tests/` (kapacita, náhradník, souběh, uzávěrka, duplicita, validace, výběr veřejných dat bez osobních údajů, selhání Telegramu) (2026-11-05)
+- ☑ Ověřit z dokumentace: nasazení web app, volání z prohlížeče (CORS), denní limity e-mailů, chat ID u Telegramu — zjištění do DECISIONS.md (2026-11-05)
+- ☑ `NAVOD.md` (nastavení, zkušební přihláška, každodenní správa, časté problémy) (2026-11-05)
+- ☑ HANDOFF.md aktualizovat (2026-11-05)
 **ZASTÁVKA 2:** David provede ruční nastavení podle NAVOD.md a pošle adresu skriptu.
 
 ## Fáze 4 – Napojení a ověření
@@ -43,4 +43,4 @@ Agent: po dokončení kroku ho odškrtni (☐ → ☑) a připiš datum. Pořad�
 - ☐ HANDOFF.md a závěrečná zpráva
 
 ## Stav
-Poslední aktualizace: 2026-11-05 · Aktuální fáze: ZASTÁVKA 1 (čeká se na Davidův výběr designu) · Blokováno: výběr designu, sloučení PR, zapnutí Pages
+Poslední aktualizace: 2026-11-05 · Aktuální fáze: ZASTÁVKA 2 (David nastavuje tabulku, skript a Telegram) · Blokováno: adresa skriptu od Davida
