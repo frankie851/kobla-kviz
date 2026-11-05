@@ -22,7 +22,7 @@ Fáze 0–3 hotové. Web ve stylu C běží v demo režimu, skript, testy a náv
 
 ## Větev a pull request
 - Pracovní větev: `claude/sharp-shannon-r4gqnz` (do `main` toto sezení pushovat nesmí, viz D-006).
-- PR #1 sloučený. Nový PR s Fází 2 a 3: viz https://github.com/frankie851/kobla-kviz/pulls – David ho musí sloučit, než začne nové sezení.
+- PR #1 sloučený. Otevřený PR s Fází 2 a 3: https://github.com/frankie851/kobla-kviz/pull/2 – David ho musí sloučit, než začne nové sezení.
 
 ## Adresy
 - Web: https://frankie851.github.io/kobla-kviz/ – první nasazení selhalo, protože při sloučení PR #1 ještě nebyly zapnuté Pages („Get Pages site failed“). Po zapnutí *Settings → Pages → Source: GitHub Actions* se web nasadí při dalším sloučení (nebo *Actions → Re-run all jobs*). Z prostředí agenta se na github.io nedostanu (síť), ověřuje David.
