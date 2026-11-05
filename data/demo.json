@@ -1,0 +1,60 @@
+{
+  "_poznamka": "Vymyšlená ukázková data pro demo režim. Podniky, adresy ani týmy neexistují. Místo data má termín 'za_dni' (počet dní od dneška), aby ukázka nezastarala.",
+  "podniky": [
+    {
+      "id": "konvice",
+      "nazev": "Hostinec U Modré konvice",
+      "mesto": "Prostějov",
+      "adresa": "Ukázková 12, Prostějov",
+      "mapa_url": "https://mapy.cz/zakladni?q=Prost%C4%9Bjov",
+      "popis": "Velký sál, dlouhé stoly a kuchyně otevřená až do konce kvízu."
+    },
+    {
+      "id": "sova",
+      "nazev": "Kavárna Tichá sova",
+      "mesto": "Plumlov",
+      "adresa": "Vymyšlená 3, Plumlov",
+      "mapa_url": "https://mapy.cz/zakladni?q=Plumlov",
+      "popis": "Útulná kavárna u přehrady. Míst je málo, takže se plní rychle."
+    },
+    {
+      "id": "orechy",
+      "nazev": "Hospůdka U Tří ořechů",
+      "mesto": "Kostelec na Hané",
+      "adresa": "Smyšlená 7, Kostelec na Hané",
+      "mapa_url": "https://mapy.cz/zakladni?q=Kostelec%20na%20Han%C3%A9",
+      "popis": "Vesnická hospoda s dobrou desítkou a zahrádkou na léto."
+    }
+  ],
+  "terminy": [
+    { "id": "konvice-1", "podnik_id": "konvice", "za_dni": 6,  "cas": "19:00", "kapacita_tymu": 12, "volno": 4,  "max_hracu": 6, "startovne_kc": 50, "stav": "otevreno", "poznamka": "" },
+    { "id": "sova-1",    "podnik_id": "sova",    "za_dni": 9,  "cas": "19:00", "kapacita_tymu": 8,  "volno": 0,  "max_hracu": 5, "startovne_kc": 50, "stav": "obsazeno", "poznamka": "" },
+    { "id": "orechy-1",  "podnik_id": "orechy",  "za_dni": 13, "cas": "18:30", "kapacita_tymu": 10, "volno": 1,  "max_hracu": 6, "startovne_kc": 40, "stav": "otevreno", "poznamka": "" },
+    { "id": "konvice-2", "podnik_id": "konvice", "za_dni": 20, "cas": "19:00", "kapacita_tymu": 12, "volno": 12, "max_hracu": 6, "startovne_kc": 50, "stav": "otevreno", "poznamka": "" },
+    { "id": "sova-2",    "podnik_id": "sova",    "za_dni": 23, "cas": "19:00", "kapacita_tymu": 8,  "volno": 8,  "max_hracu": 5, "startovne_kc": 50, "stav": "zruseno",  "poznamka": "Podnik má soukromou akci." },
+    { "id": "orechy-2",  "podnik_id": "orechy",  "za_dni": 27, "cas": "18:30", "kapacita_tymu": 10, "volno": 7,  "max_hracu": 6, "startovne_kc": 40, "stav": "otevreno", "poznamka": "" }
+  ],
+  "vysledky": [
+    {
+      "termin_id": "konvice-0", "podnik_id": "konvice", "za_dni": -8, "cas": "19:00",
+      "tymy": [
+        { "poradi": 1, "tym": "Večerní sovy", "body": 52 },
+        { "poradi": 2, "tym": "Tým bez jména", "body": 49 },
+        { "poradi": 3, "tym": "Hlavy v oblacích", "body": 47 },
+        { "poradi": 4, "tym": "Pátá kolona", "body": 41 },
+        { "poradi": 5, "tym": "Dobrá otázka", "body": 38 },
+        { "poradi": 6, "tym": "Poslední lavice", "body": 30 }
+      ]
+    },
+    {
+      "termin_id": "orechy-0", "podnik_id": "orechy", "za_dni": -15, "cas": "18:30",
+      "tymy": [
+        { "poradi": 1, "tym": "Dobrá otázka", "body": 55 },
+        { "poradi": 2, "tym": "Ořechový tým", "body": 50 },
+        { "poradi": 3, "tym": "Hlavy v oblacích", "body": 44 },
+        { "poradi": 4, "tym": "Stůl u okna", "body": 39 },
+        { "poradi": 5, "tym": "Nevíme, ale tipneme", "body": 33 }
+      ]
+    }
+  ]
+}

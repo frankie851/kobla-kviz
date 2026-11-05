@@ -2,16 +2,16 @@
 Agent: po dokončení kroku ho odškrtni (☐ → ☑) a připiš datum. Pořadí fází neměň bez důvodu zapsaného do `docs/DECISIONS.md`. Požadavky (R…) a kritéria přijetí (K…) jsou v `docs/SPEC.md`.
 
 ## Fáze 0 – Příprava a zveřejňování
-- ☐ Přečti `CLAUDE.md`, `docs/SPEC.md`, `docs/DECISIONS.md`, `docs/HANDOFF.md`
-- ☐ Zjisti, do které větve smíš pushovat a zda umíš sám zapnout GitHub Pages — výsledek: DECISIONS.md
-- ☐ Workflow `.github/workflows/pages.yml` (nasazuje z hlavní větve) a jednoduchá stránka „Brzy tu bude Kobla Kvíz“ — výstup: nasazení připravené
-- ☐ Kostra repozitáře podle `CLAUDE.md` (složky, `config.js`, `data/demo.json` s vymyšlenými podniky a termíny)
+- ☑ Přečti `CLAUDE.md`, `docs/SPEC.md`, `docs/DECISIONS.md`, `docs/HANDOFF.md` (2026-11-05)
+- ☑ Zjisti, do které větve smíš pushovat a zda umíš sám zapnout GitHub Pages — výsledek: DECISIONS.md (2026-11-05)
+- ☑ Workflow `.github/workflows/pages.yml` (nasazuje z hlavní větve) a jednoduchá stránka „Brzy tu bude Kobla Kvíz“ — výstup: nasazení připravené (2026-11-05)
+- ☑ Kostra repozitáře podle `CLAUDE.md` (složky, `config.js`, `data/demo.json` s vymyšlenými podniky a termíny) (2026-11-05)
 
 ## Fáze 1 – 5 návrhů designu
-- ☐ 5 výrazně odlišných směrů v `navrhy/a-…/` až `navrhy/e-…/`, každý s vlastním logem
-- ☐ Rozcestník `navrhy/index.html` (náhled + 2 věty ke každému směru + odkaz)
-- ☐ Snímky na 390 px a 1280 px do `navrhy/nahledy/`, sám je prohlédni a oprav rozbité
-- ☐ HANDOFF.md aktualizovat
+- ☑ 5 výrazně odlišných směrů v `navrhy/a-…/` až `navrhy/e-…/`, každý s vlastním logem (2026-11-05)
+- ☑ Rozcestník `navrhy/index.html` (náhled + 2 věty ke každému směru + odkaz) (2026-11-05)
+- ☑ Snímky na 390 px a 1280 px do `navrhy/nahledy/`, sám je prohlédni a oprav rozbité (2026-11-05)
+- ☑ HANDOFF.md aktualizovat (2026-11-05)
 **ZASTÁVKA 1:** David vybere směr (nebo kombinaci). Zapiš volbu do DECISIONS.md.
 
 ## Fáze 2 – Celý web ve zvoleném stylu (demo režim)
@@ -43,4 +43,4 @@ Agent: po dokončení kroku ho odškrtni (☐ → ☑) a připiš datum. Pořad�
 - ☐ HANDOFF.md a závěrečná zpráva
 
 ## Stav
-Poslední aktualizace: 2026-11-05 · Aktuální fáze: 0 (nezahájeno) · Blokováno: nic
+Poslední aktualizace: 2026-11-05 · Aktuální fáze: ZASTÁVKA 1 (čeká se na Davidův výběr designu) · Blokováno: výběr designu, sloučení PR, zapnutí Pages

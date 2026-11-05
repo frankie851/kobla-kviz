@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Návrhy designu · Kobla Kvíz</title>
+  <style>
+    /* Rozcestník návrhů – záměrně neutrální, aby nepřebíjel samotné návrhy */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #f3f3f1; color: #1b1b1b; font: 400 1rem/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .obal { width: min(1100px, 100% - 32px); margin: 0 auto; padding: 28px 0 60px; }
+    h1 { font-size: clamp(1.7rem, 6vw, 2.4rem); margin: 0 0 6px; }
+    .uvod { max-width: 60ch; color: #444; margin: 0 0 26px; }
+    .navrhy { display: grid; gap: 22px; }
+    .navrh { background: #fff; border-radius: 18px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,.06); display: grid; gap: 14px; }
+    .nahledy { display: grid; grid-template-columns: 3.3fr 1fr; gap: 10px; align-items: start; }
+    .nahledy img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid #ddd; }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h2 span { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #1b1b1b; color: #fff; margin-right: 8px; font-size: 1rem; }
+    .navrh p { margin: 0; }
+    .detail { color: #555; font-size: .92rem; }
+    .odkaz { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; background: #1b1b1b; color: #fff; border-radius: 99px; text-decoration: none; font-weight: 700; justify-self: start; }
+    .odkaz:hover { background: #333; }
+    :focus-visible { outline: 3px solid #2a6bff; outline-offset: 3px; }
+    .pozn { margin-top: 30px; font-size: .92rem; color: #555; }
+    @media (min-width: 800px) {
+      .navrh { grid-template-columns: 1.4fr 1fr; align-items: center; padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="obal">
+    <h1>Kobla Kvíz – 5 návrhů designu</h1>
+    <p class="uvod">Všechny návrhy mají stejný ukázkový obsah (vymyšlené podniky a týmy), liší se barvami, písmem, rozvržením a náladou. Otevři je na mobilu i na počítači a napiš, který bereš, nebo co z kterého zkombinovat (např. „barvy z B, písmo a logo z D“).</p>
+
+    <div class="navrhy">
+      <article class="navrh">
+        <div class="nahledy">
+          <img src="nahledy/a-1280.jpg" width="1280" height="800" alt="Návrh A na počítači" loading="lazy">
+          <img src="nahledy/a-390.jpg" width="390" height="844" alt="Návrh A na mobilu" loading="lazy">
+        </div>
+        <div>
+          <h2><span>A</span>Neon</h2>
+          <p>Tmavý večer v hospodě a svítící neonová cedule nad barem. Působí jako akce, na kterou se chodí po setmění, a na mobilu v šeru dobře svítí.</p>
+          <p class="detail">Písmo Tilt Neon + Inter · noční modrá, neonově růžová, tyrkysová, žlutá</p>
+          <p style="margin-top:12px"><a class="odkaz" href="a-neon/">Otevřít návrh A</a></p>
+        </div>
+      </article>
+
+      <article class="navrh">
+        <div class="nahledy">
+          <img src="nahledy/b-1280.jpg" width="1280" height="800" alt="Návrh B na počítači" loading="lazy">
+          <img src="nahledy/b-390.jpg" width="390" height="844" alt="Návrh B na mobilu" loading="lazy">
+        </div>
+        <div>
+          <h2><span>B</span>Hravý</h2>
+          <p>Barevné nálepky, tlusté obrysy a lehce pootočené karty. Veselé a přátelské, řekne „pojď si s námi zahrát“ i lidem, kteří na kvíz ještě nikdy nebyli.</p>
+          <p class="detail">Písmo Fredoka + Nunito · žlutá, korálová, fialová, mátová</p>
+          <p style="margin-top:12px"><a class="odkaz" href="b-hravy/">Otevřít návrh B</a></p>
+        </div>
+      </article>
+
+      <article class="navrh">
+        <div class="nahledy">
+          <img src="nahledy/c-1280.jpg" width="1280" height="800" alt="Návrh C na počítači" loading="lazy">
+          <img src="nahledy/c-390.jpg" width="390" height="844" alt="Návrh C na mobilu" loading="lazy">
+        </div>
+        <div>
+          <h2><span>C</span>Pivní etiketa</h2>
+          <p>Retro etiketa z krémového papíru se stuhou, podniky jako nápojový lístek a přihláška jako ústřižek. Tradiční a hospodský, sedne i k vesnické hospodě.</p>
+          <p class="detail">Písmo Alfa Slab One + Bitter · krémová, bordó, tmavě zelená, zlatá</p>
+          <p style="margin-top:12px"><a class="odkaz" href="c-etiketa/">Otevřít návrh C</a></p>
+        </div>
+      </article>
+
+      <article class="navrh">
+        <div class="nahledy">
+          <img src="nahledy/d-1280.jpg" width="1280" height="800" alt="Návrh D na počítači" loading="lazy">
+          <img src="nahledy/d-390.jpg" width="390" height="844" alt="Návrh D na mobilu" loading="lazy">
+        </div>
+        <div>
+          <h2><span>D</span>Kvízový arch</h2>
+          <p>Odpovědní arch s linkami, obří písmo, číslované sekce a jedna kyselá zelená. Sebevědomé a výrazné, vypadá jako plakát a dobře se pamatuje.</p>
+          <p class="detail">Písmo Archivo Black + Space Mono · černá, bílá, kyselá zelená</p>
+          <p style="margin-top:12px"><a class="odkaz" href="d-arch/">Otevřít návrh D</a></p>
+        </div>
+      </article>
+
+      <article class="navrh">
+        <div class="nahledy">
+          <img src="nahledy/e-1280.jpg" width="1280" height="800" alt="Návrh E na počítači" loading="lazy">
+          <img src="nahledy/e-390.jpg" width="390" height="844" alt="Návrh E na mobilu" loading="lazy">
+        </div>
+        <div>
+          <h2><span>E</span>Elektrický</h2>
+          <p>Moderní a světlý, s barevnými přechody, zaoblenými kartami a dlaždicemi. Působí jako aplikace, uhlazeně a profesionálně, což ocení hlavně noví podnikatelé.</p>
+          <p class="detail">Písmo Unbounded + Manrope · fialová, modrá, růžová, limetková</p>
+          <p style="margin-top:12px"><a class="odkaz" href="e-elektricky/">Otevřít návrh E</a></p>
+        </div>
+      </article>
+    </div>
+
+    <p class="pozn">Formuláře v návrzích zatím nic neodesílají. Texty s [DOPLNIT: …] se doplní, až budou známá fakta. Písma jsou uložená přímo na webu, nic se nenačítá z cizích služeb.</p>
+  </main>
+</body>
+</html>

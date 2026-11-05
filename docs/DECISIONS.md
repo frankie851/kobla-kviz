@@ -2,6 +2,41 @@
 Nejnovější nahoře. Každé rozhodnutí jednou; pozdější změna = nový záznam s odkazem na původní.
 Agent: sem zapisuj svá rozhodnutí a předpoklady (D-006 a dál). Předpoklad, který má David potvrdit, označ „předpoklad k potvrzení“.
 
+## D-012 · 2026-11-05 · Zástupná stránka osobních údajů
+- **Rozhodnutí:** `osobni-udaje.html` zatím jen zástupný text, aby odkaz ze souhlasu ve formuláři nikam nevedl naprázdno. Plný text (R11) přijde ve Fázi 2.
+- **Kdo:** agent.
+
+## D-011 · 2026-11-05 · Návrhy designu a náhledy
+- **Rozhodnutí:** 5 směrů: A Neon, B Hravý, C Pivní etiketa, D Kvízový arch, E Elektrický. Všechny čtou stejná data z `data/demo.json` přes `navrhy/demo-plnic.js` a české formáty přes `assets/js/cesky.js` (ten se použije i ve finálním webu). Návrhy mají už teď `noindex`. Náhledy pro rozcestník jsou horní část stránky (JPEG, 390 a 1280 px) v `navrhy/nahledy/`. Celé stránky na 390, 768 a 1280 px jsem nafotil Playwrightem mimo repozitář, prohlédl a opravil (přetékající řádky termínů, překrývající se text v logu C, rozbitá mřížka kroků a slabší kontrast v E).
+- **Proč:** stejný obsah = férové srovnání. Malé náhledy nezatěžují repozitář.
+- **Kdo:** agent.
+
+## D-010 · 2026-11-05 · Startovné za osobu (předpoklad k potvrzení)
+- **Rozhodnutí:** sloupec `startovne_kc` v listu `Terminy` chápu jako Kč **za osobu**, ne za tým. Na webu se zobrazí např. „50 Kč za osobu“.
+- **Proč:** u hospodských kvízů obvyklejší. SPEC to neříká.
+- **Kdo:** agent – předpoklad k potvrzení Davidem.
+
+## D-009 · 2026-11-05 · Formát veřejných dat a demo data
+- **Rozhodnutí:** web čte jeden JSON: `podniky` (bez sloupce `aktivni`, jen aktivní), `terminy` (navíc `volno` a `stav` = otevreno / obsazeno / uzavreno / zruseno) a `vysledky` (po termínech, pořadí týmů s body). Stejný tvar vrací skript i `data/demo.json`. Demo data mají místo data pole `za_dni` (počet dní od dneška), aby ukázka nezastarala. Podniky, adresy („Ukázková 12“, „Vymyšlená 3“…) a týmy jsou vymyšlené, města jsou skutečná kvůli dojmu z regionu.
+- **Proč:** jedna logika webu pro demo i ostrý provoz.
+- **Kdo:** agent.
+
+## D-008 · 2026-11-05 · Písma
+- **Rozhodnutí:** písma z npm balíčků `@fontsource/*` (stažené mimo repozitář), do `assets/fonts/<pismo>/` uložené jen řezy latin + latin-ext ve WOFF2, s CSS (`unicode-range`) a licencí `OFL.txt` (SIL Open Font License). Všechna obsahují českou diakritiku.
+- **Proč:** SPEC – bez Google Fonts a CDN, volná licence, čeština.
+- **Poznámka:** po výběru designu zůstanou písma nepoužitých směrů kvůli složce `navrhy/`. Smažou se, až se smaže `navrhy/`.
+- **Kdo:** agent.
+
+## D-007 · 2026-11-05 · Nasazení na GitHub Pages
+- **Rozhodnutí:** workflow `.github/workflows/pages.yml` nasazuje web při každé změně v hlavní větvi `main` (a ručně v záložce Actions). Na web jde všechno kromě `docs/`, `prompts/`, `tests/`, `apps-script/` a souborů `.md` (ty jsou jen v repozitáři). Adresa webu bude `https://frankie851.github.io/kobla-kviz/`.
+- **Ručně (David):** jednou zapnout Pages: *Settings → Pages → Build and deployment → Source: GitHub Actions*.
+- **Kdo:** agent.
+
+## D-006 · 2026-11-05 · Větve (zjištění Fáze 0)
+- **Zjištění:** toto sezení smí pushovat jen do pracovní větve `claude/sharp-shannon-r4gqnz` (nastavení prostředí Claude Code). Do `main` pushovat nesmí. Nastavení repozitáře (zapnutí Pages) změnit neumí – nemá nástroj s přístupem k *Settings* repozitáře (`gh` je v tomto prostředí jen pro vyhledávání).
+- **Rozhodnutí:** pracuji v pracovní větvi a před každou zastávkou otevřu nebo aktualizuji pull request do `main`. David ho sloučí tlačítkem *Merge pull request*. Pages zapne David ručně (D-007).
+- **Kdo:** agent.
+
 ## D-005 · 2026-11-05 · Texty tykáním
 - **Rozhodnutí:** web hráčům tyká, tón je přátelský a vtipný.
 - **Proč:** u hospodských kvízů obvyklé, působí uvolněně.
