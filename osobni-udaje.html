@@ -4,15 +4,86 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zpracování osobních údajů – Kobla Kvíz</title>
-  <style>
-    body { margin: 0 auto; max-width: 40rem; padding: 32px 20px; font-family: system-ui, sans-serif; line-height: 1.6; color: #1b1b1b; background: #fff; }
-  </style>
+  <meta name="description" content="Jak Kobla Kvíz zachází s údaji z přihlášek a s fotkami z akcí.">
+  <meta name="theme-color" content="#1f3d2b">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:title" content="Zpracování osobních údajů – Kobla Kvíz">
+  <meta property="og:description" content="Jak Kobla Kvíz zachází s údaji z přihlášek a s fotkami z akcí.">
+  <meta property="og:image" content="https://frankie851.github.io/kobla-kviz/assets/img/sdileni.png">
+  <link rel="stylesheet" href="assets/css/styl.css">
 </head>
 <body>
-  <main>
-    <h1>Zpracování osobních údajů</h1>
-    <p>Text se připravuje. Do té doby se s dotazy obrať na organizátora: [DOPLNIT: e-mail].</p>
-    <p><a href="./">Zpět na hlavní stránku</a></p>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <header class="pruh">
+    <div class="obal">
+      <a class="domu" href="./"><img src="assets/img/favicon.svg" alt="" width="32" height="32">Kobla Kvíz</a>
+      <button class="menu-tlacitko" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav id="menu" class="menu" aria-label="Hlavní menu">
+        <ul>
+          <li><a href="./#kde">Kde hrajeme</a></li>
+          <li><a href="./#prihlaska">Přihláška</a></li>
+          <li><a href="./#jak">Jak to probíhá</a></li>
+          <li><a href="vysledky.html">Výsledky</a></li>
+          <li data-fotky-odkaz hidden><a href="fotky.html">Fotky</a></li>
+          <li><a href="./#dotazy">Dotazy</a></li>
+          <li><a href="./#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="obsah">
+    <div class="obal">
+      <div class="hlava-stranky">
+        <h1>Zpracování osobních údajů</h1>
+        <p>Krátce a srozumitelně: co o tobě víme, proč a jak dlouho.</p>
+      </div>
+      <article class="text-stranky">
+        <p class="upozorneni">Tento text je návrh k ověření, nejde o právní radu. [DOPLNIT: nechat zkontrolovat a doplnit údaje správce.]</p>
+
+        <h2>Kdo údaje zpracovává</h2>
+        <p>Správcem údajů je [DOPLNIT: jméno a příjmení nebo název, adresa, případně IČO], organizátor Kobla Kvízu. Kontakt: <span data-kontakt="email">[DOPLNIT: e-mail]</span>, <span data-kontakt="telefon">[DOPLNIT: telefon]</span>.</p>
+
+        <h2>Jaké údaje a proč</h2>
+        <p>Z přihlášky týmu ukládáme název týmu, počet hráčů, jméno kapitána, e-mail, telefon, případnou poznámku a čas odeslání. Z formuláře pro hospody název podniku, město, kontaktní osobu, e-mail nebo telefon, kapacitu a zprávu.</p>
+        <p>Údaje potřebujeme jen k organizaci kvízu: abychom věděli, kdo přijde, poslali potvrzení, ozvali se při změně nebo uvolněném místě a domluvili se s hospodou. Nikomu je neprodáváme ani nedáváme k reklamě.</p>
+        <p>Na webu se nikdy neukazují jména, e-maily ani telefony. Ve výsledcích je jen název týmu a body.</p>
+
+        <h2>Kde jsou uložené</h2>
+        <p>Přihlášky se ukládají do tabulky Google, ke které má přístup jen organizátor. Upozornění na novou přihlášku chodí organizátorovi e-mailem a přes Telegram. Web nepoužívá sledovací cookies ani analytiku a písma i obrázky má uložené u sebe, takže se při návštěvě nic neposílá cizím službám.</p>
+
+        <h2>Jak dlouho</h2>
+        <p>Údaje z přihlášky mažeme nejpozději 12 měsíců po kvízu, na který byla přihláška. [DOPLNIT: potvrdit lhůtu.] Výsledky (název týmu a body) zůstávají na webu jako historie kvízu.</p>
+
+        <h2>Tvoje práva</h2>
+        <p>Můžeš se zeptat, jaké údaje o tobě máme, nechat je opravit nebo smazat. Stačí napsat na <span data-kontakt="email">[DOPLNIT: e-mail]</span>. Pokud máš pocit, že s údaji zacházíme špatně, můžeš se obrátit na Úřad pro ochranu osobních údajů (uoou.gov.cz).</p>
+
+        <h2>Fotky z akcí</h2>
+        <p>Na kvízových večerech se fotí a vybrané fotky dáváme na web do galerie a na sociální sítě. Když nechceš být vyfocený(á), řekni to prosím organizátorovi na místě. Když najdeš fotku, která se ti nelíbí, napiš nám a stáhneme ji.</p>
+
+        <p><a href="./">← Zpět na hlavní stránku</a></p>
+      </article>
+    </div>
   </main>
+
+  <!-- R12 Patička -->
+  <footer class="paticka">
+    <div class="obal">
+      <p class="jmeno">Kobla Kvíz</p>
+      <p>Hospodský kvíz pro Prostějov a okolí</p>
+      <p><span data-kontakt="email">[DOPLNIT: e-mail]</span> · <span data-kontakt="telefon">[DOPLNIT: telefon]</span></p>
+      <p class="site"><span data-kontakt="facebook">[DOPLNIT: odkaz na Facebook]</span> <span data-kontakt="instagram">[DOPLNIT: odkaz na Instagram]</span></p>
+      <p><a href="osobni-udaje.html">Zpracování osobních údajů</a> · © <span data-rok>2026</span> Kobla Kvíz</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="assets/js/cesky.js"></script>
+  <script src="assets/js/kobla.js"></script>
 </body>
 </html>

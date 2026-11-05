@@ -73,6 +73,8 @@
   // Projde všechny textové uzly v prvku a opraví mezery (nesahá do formulářových polí a skriptů).
   function opravMezery(koren) {
     if (!koren || !glob.document) return;
+    if (koren.nodeType === 3) koren = koren.parentNode;
+    if (!koren || koren.nodeType !== 1) return;
     var chodec = glob.document.createTreeWalker(koren, 4 /* NodeFilter.SHOW_TEXT */, null);
     var uzel;
     while ((uzel = chodec.nextNode())) {

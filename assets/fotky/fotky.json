@@ -1,0 +1,4 @@
+{
+  "_poznamka": "Seznam fotek z akcí. Každý večer má složku assets/fotky/<RRRR-MM-DD>-<podnik>/. Nejnovější večer patří nahoru. Když je seznam prázdný, sekce Fotky se na webu vůbec neukáže.",
+  "vecery": []
+}

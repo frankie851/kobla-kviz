@@ -3,20 +3,316 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kobla Kvíz – brzy</title>
-  <meta name="description" content="Hospodský kvíz pro Prostějov a okolí. Web se právě chystá.">
-  <style>
-    html { color-scheme: dark; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #14121f; color: #f4f1ea;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center; padding: 24px; box-sizing: border-box; }
-    h1 { font-size: clamp(2.2rem, 8vw, 4rem); margin: 0 0 .3em; letter-spacing: -.02em; }
-    p { font-size: 1.15rem; margin: 0; color: #cfc9da; }
-  </style>
+  <title>Kobla Kvíz – hospodský kvíz v Prostějově a okolí</title>
+  <meta name="description" content="Hospodský kvíz pro Prostějov a okolí. Podívej se, kde a kdy hrajeme, kolik zbývá míst, a přihlas tým za minutu.">
+  <meta name="theme-color" content="#1f3d2b">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:title" content="Kobla Kvíz – hospodský kvíz v Prostějově a okolí">
+  <meta property="og:description" content="Kde a kdy hrajeme, kolik zbývá míst a přihláška týmu za minutu.">
+  <meta property="og:url" content="https://frankie851.github.io/kobla-kviz/">
+  <meta property="og:image" content="https://frankie851.github.io/kobla-kviz/assets/img/sdileni.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo Kobla Kvíz – hospodský kvíz pro Prostějov a okolí">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/css/styl.css">
 </head>
 <body>
-  <main>
-    <h1>Kobla Kvíz</h1>
-    <p>Brzy tu bude Kobla Kvíz. Hospodský kvíz pro Prostějov a okolí.</p>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <header class="pruh">
+    <div class="obal">
+      <a class="domu" href="./"><img src="assets/img/favicon.svg" alt="" width="32" height="32">Kobla Kvíz</a>
+      <button class="menu-tlacitko" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav id="menu" class="menu" aria-label="Hlavní menu">
+        <ul>
+          <li><a href="./#kde">Kde hrajeme</a></li>
+          <li><a href="./#prihlaska">Přihláška</a></li>
+          <li><a href="./#jak">Jak to probíhá</a></li>
+          <li><a href="vysledky.html">Výsledky</a></li>
+          <li data-fotky-odkaz hidden><a href="fotky.html">Fotky</a></li>
+          <li><a href="./#dotazy">Dotazy</a></li>
+          <li><a href="./#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="obsah">
+    <!-- R1 Úvod -->
+    <section class="uvod" aria-label="Úvod">
+      <div class="obal uvod-mrizka">
+        <h1><img class="logo" src="assets/img/logo.svg" alt="Kobla Kvíz – Prostějov a okolí" width="320" height="240"></h1>
+        <div>
+          <p class="slogan">Hospodský kvíz, na který se těšíš celý týden.</p>
+          <div class="kupon" id="nejblizsi" aria-live="polite">
+            <p class="nad">Nejbližší kvíz</p>
+            <span class="kostra kostra--svetla kostra--nadpis" style="margin-inline:auto"></span>
+            <span class="kostra kostra--svetla kostra--kratka" style="margin-inline:auto"></span>
+          </div>
+          <a class="tlacitko" id="tlacitko-prihlasit" href="#prihlaska">Přihlásit tým</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- R2 Kde hrajeme -->
+    <section id="kde">
+      <div class="obal listek">
+        <div class="nadpis"><span class="pred">Naše hospody</span><h2>Kde hrajeme</h2></div>
+        <div class="podniky" id="podniky" aria-live="polite">
+          <div aria-hidden="true"><span class="kostra kostra--kratka"></span><span class="kostra kostra--nadpis"></span><span class="kostra"></span><span class="kostra"></span></div>
+          <div aria-hidden="true"><span class="kostra kostra--kratka"></span><span class="kostra kostra--nadpis"></span><span class="kostra"></span><span class="kostra"></span></div>
+          <div aria-hidden="true"><span class="kostra kostra--kratka"></span><span class="kostra kostra--nadpis"></span><span class="kostra"></span><span class="kostra"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- R3 Přihláška -->
+    <section id="prihlaska">
+      <div class="obal">
+        <div class="nadpis"><span class="pred">Ústřižek pro kapitána</span><h2>Přihláška</h2></div>
+        <p class="uvodni-text">Vyplň to za minutu. Potvrzení ti přijde e-mailem. Když je termín plný, zapíšeme tě jako náhradníka.</p>
+        <div class="formular-obal">
+          <form id="form-prihlaska" class="formular" novalidate>
+            <div class="pole">
+              <label for="f-termin">Termín</label>
+              <select id="f-termin" name="termin_id" required>
+                <option value="">Načítám termíny…</option>
+              </select>
+            </div>
+            <p class="info-termin" id="f-termin-info" aria-live="polite" hidden></p>
+            <div class="pole">
+              <label for="f-tym">Název týmu</label>
+              <input id="f-tym" name="tym" required minlength="2" maxlength="40" autocomplete="off">
+            </div>
+            <div class="dva">
+              <div class="pole">
+                <label for="f-pocet">Počet hráčů</label>
+                <input id="f-pocet" name="pocet_hracu" type="number" inputmode="numeric" min="1" max="10" value="4" required aria-describedby="f-pocet-napoveda">
+                <span class="napoveda" id="f-pocet-napoveda">Kolik vás přijde.</span>
+              </div>
+              <div class="pole">
+                <label for="f-kapitan">Jméno kapitána</label>
+                <input id="f-kapitan" name="kapitan" required maxlength="60" autocomplete="name">
+              </div>
+            </div>
+            <div class="dva">
+              <div class="pole">
+                <label for="f-email">E-mail</label>
+                <input id="f-email" name="email" type="email" required maxlength="120" autocomplete="email" inputmode="email">
+              </div>
+              <div class="pole">
+                <label for="f-telefon">Telefon</label>
+                <input id="f-telefon" name="telefon" type="tel" required maxlength="20" autocomplete="tel" inputmode="tel">
+              </div>
+            </div>
+            <div class="pole">
+              <label for="f-poznamka">Poznámka <span>(nepovinné, max. 500 znaků)</span></label>
+              <textarea id="f-poznamka" name="poznamka" rows="3" maxlength="500"></textarea>
+            </div>
+            <!-- Past na roboty: člověk toto pole nevidí a nevyplní -->
+            <div class="medovnik" aria-hidden="true">
+              <label for="f-web">Web</label>
+              <input id="f-web" name="web" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="souhlas">
+              <input type="checkbox" id="f-souhlas" name="souhlas" required>
+              <label for="f-souhlas">Souhlasím se <a href="osobni-udaje.html">zpracováním osobních údajů</a> kvůli organizaci kvízu.</label>
+            </div>
+            <button class="tlacitko" type="submit">Přihlásit tým</button>
+            <div id="prihlaska-zprava" class="zprava" role="status" tabindex="-1" hidden></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- R4 Jak kvíz probíhá -->
+    <section id="jak">
+      <div class="obal">
+        <div class="nadpis"><span class="pred">Postup osvědčený</span><h2>Jak to probíhá</h2>
+          <svg class="ornament" viewBox="0 0 160 14" aria-hidden="true"><path d="M0 7h62M98 7h62" stroke="#c9a227" stroke-width="2"/><path d="M80 0l7 7-7 7-7-7z" fill="#7a1f2b"/></svg>
+        </div>
+        <ol class="kroky">
+          <li>
+            <span class="ikona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.2 5 2.6 5 5.8"/></svg></span>
+            <div><h3>Tým</h3><p>Hrajete v týmu, kolik vás může být, uvidíš u termínu (obvykle až [DOPLNIT: kolik] lidí). Přijď klidně i ve dvou.</p></div>
+          </li>
+          <li>
+            <span class="ikona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 5.5l1-1v3M3.8 11h2l-2 2.5h2M4 16.5h1.6l-1 1.3c1 0 1.4.4 1.4 1s-.5 1-1.2 1H4"/></svg></span>
+            <div><h3>Kola otázek</h3><p>[DOPLNIT: počet] kol po [DOPLNIT: počet] otázkách ze všeho možného: [DOPLNIT: např. vědomosti, hudba, obrázky].</p></div>
+          </li>
+          <li>
+            <span class="ikona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v5c0 1.7 3.1 3 7 3s7-1.3 7-3V7"/><path d="M5 12v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/></svg></span>
+            <div><h3>Startovné</h3><p>Cenu za osobu najdeš u každého termínu. Platí se na místě, [DOPLNIT: hotově, nebo i kartou].</p></div>
+          </li>
+          <li>
+            <span class="ikona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v6a4 4 0 0 1-8 0V4z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 14v3M8.5 20h7M10 17h4v3h-4z"/></svg></span>
+            <div><h3>Ceny</h3><p>Nejlepší týmy vyhrávají [DOPLNIT: co přesně, např. poukaz na útratu].</p></div>
+          </li>
+          <li>
+            <span class="ikona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/><path d="M3 3l18 18"/></svg></span>
+            <div><h3>Pravidla</h3><p>Mobily zůstávají v kapse a odpovědi píšete na papír. [DOPLNIT: další pravidla, např. jak se boduje.]</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- R5 Výsledky (náhled) -->
+    <section id="vysledky">
+      <div class="obal vysledky-blok">
+        <div class="nadpis"><span class="pred">Síň slávy</span><h2>Poslední výsledky</h2></div>
+        <p class="kdy" id="vysledky-kdy"><span class="kostra kostra--svetla kostra--kratka" style="margin-inline:auto"></span></p>
+        <ol class="poradi-tabulka" id="vysledky-nahled" hidden></ol>
+        <a href="vysledky.html">Všechny výsledky</a>
+      </div>
+    </section>
+
+    <!-- R6 Fotky (náhled) – bez fotek zůstane skrytá -->
+    <section id="fotky" hidden>
+      <div class="obal">
+        <div class="nadpis"><span class="pred">Jak to u nás vypadá</span><h2>Fotky</h2></div>
+        <p class="uvodni-text" id="fotky-kdy"></p>
+        <ul class="fotky-mrizka" id="fotky-nahled"></ul>
+        <p class="stred"><a href="fotky.html">Všechny fotky</a></p>
+      </div>
+    </section>
+
+    <!-- R7 Časté dotazy -->
+    <section id="dotazy">
+      <div class="obal">
+        <div class="nadpis"><span class="pred">Než se zeptáš</span><h2>Časté dotazy</h2></div>
+        <div class="dotazy">
+          <details>
+            <summary>Musíme se přihlásit předem?</summary>
+            <div><p>Určitě doporučujeme. Míst je omezeně a přihlášené týmy mají stůl jistý. Když zbude místo, můžete zkusit přijít i bez přihlášky, ale nezaručujeme to.</p></div>
+          </details>
+          <details>
+            <summary>Kolik nás může být v týmu?</summary>
+            <div><p>Nejvyšší počet hráčů je u každého termínu, záleží na velikosti stolů v podniku. Obvykle je to [DOPLNIT: kolik] lidí. Hrát se dá i ve dvou.</p></div>
+          </details>
+          <details>
+            <summary>Kolik to stojí a jak se platí?</summary>
+            <div><p>Startovné za osobu je uvedené u každého termínu. Platí se na místě před začátkem, [DOPLNIT: hotově, nebo i kartou].</p></div>
+          </details>
+          <details>
+            <summary>Termín je plný. Má cenu se hlásit?</summary>
+            <div><p>Ano. Přihlásíš se jako náhradník a když nějaký tým odřekne, ozveme se ti. Náhradníky bereme v pořadí, v jakém se přihlásili.</p></div>
+          </details>
+          <details>
+            <summary>Jak se odhlásím?</summary>
+            <div><p>Stačí odpovědět na potvrzovací e-mail, nebo napsat organizátorovi (kontakt je dole). Dej prosím vědět co nejdřív, ať se místo dostane na náhradníky.</p></div>
+          </details>
+          <details>
+            <summary>Jak dlouho kvíz trvá?</summary>
+            <div><p>Zhruba [DOPLNIT: kolik hodin] včetně přestávek a vyhlášení. Začínáme v čase uvedeném u termínu, přijď prosím [DOPLNIT: kolik] minut předem.</p></div>
+          </details>
+          <details>
+            <summary>Můžeme během kvízu používat mobil?</summary>
+            <div><p>Ne. Kvíz je o tom, co víte, ne co najdete. Mobily nechte v kapse, jinak hrozí [DOPLNIT: jaký trest, např. odečtení bodů].</p></div>
+          </details>
+          <details>
+            <summary>Chceme kvíz i u nás v hospodě. Jak na to?</summary>
+            <div><p>Paráda! Vyplň krátký formulář v sekci <a href="#kontakt">Kontakt</a> a ozveme se ti.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- R8 Kontakt + formulář pro hospody -->
+    <section id="kontakt">
+      <div class="obal">
+        <div class="nadpis"><span class="pred">Ozvi se</span><h2>Kontakt</h2></div>
+        <div class="kontakt-mrizka">
+          <div class="vizitka">
+            <h3>Kobla Kvíz</h3>
+            <ul>
+              <li><span class="stitek">Pořádá</span>[DOPLNIT: jméno organizátora]</li>
+              <li><span class="stitek">E-mail</span><span data-kontakt="email">[DOPLNIT: e-mail]</span></li>
+              <li><span class="stitek">Telefon</span><span data-kontakt="telefon">[DOPLNIT: telefon]</span></li>
+              <li><span class="stitek">Sítě</span><span data-kontakt="facebook">[DOPLNIT: odkaz na Facebook]</span> · <span data-kontakt="instagram">[DOPLNIT: odkaz na Instagram]</span></li>
+            </ul>
+          </div>
+
+          <div class="pro-hospody">
+            <h3>Chci Kobla Kvíz u nás</h3>
+            <p>Máš hospodu, kavárnu nebo restauraci do zhruba 50 km od Prostějova? Přivezeme kvíz k vám.</p>
+            <ul class="vyhody">
+              <li>Plný lokál i ve všední večer.</li>
+              <li>Otázky, moderování i vyhodnocení zařídíme my.</li>
+              <li>Hosté se rádi vracejí, protože chtějí odvetu.</li>
+            </ul>
+            <div class="formular-obal">
+              <form id="form-hospoda" class="formular" novalidate>
+                <div class="dva">
+                  <div class="pole">
+                    <label for="h-podnik">Název podniku</label>
+                    <input id="h-podnik" name="podnik" required maxlength="80" autocomplete="organization">
+                  </div>
+                  <div class="pole">
+                    <label for="h-mesto">Město</label>
+                    <input id="h-mesto" name="mesto" required maxlength="60" autocomplete="address-level2">
+                  </div>
+                </div>
+                <div class="pole">
+                  <label for="h-osoba">Kontaktní osoba</label>
+                  <input id="h-osoba" name="kontaktni_osoba" required maxlength="60" autocomplete="name">
+                </div>
+                <div class="dva">
+                  <div class="pole">
+                    <label for="h-email">E-mail</label>
+                    <input id="h-email" name="email" type="email" maxlength="120" autocomplete="email" inputmode="email" aria-describedby="h-kontakt-napoveda">
+                  </div>
+                  <div class="pole">
+                    <label for="h-telefon">Telefon</label>
+                    <input id="h-telefon" name="telefon" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" aria-describedby="h-kontakt-napoveda">
+                  </div>
+                </div>
+                <p class="napoveda" id="h-kontakt-napoveda" style="margin:-8px 0 0">Stačí jeden z nich, e-mail, nebo telefon.</p>
+                <div class="pole">
+                  <label for="h-kapacita">Přibližná kapacita <span>(počet míst, nepovinné)</span></label>
+                  <input id="h-kapacita" name="kapacita" type="number" inputmode="numeric" min="1" max="1000">
+                </div>
+                <div class="pole">
+                  <label for="h-zprava">Zpráva <span>(nepovinné)</span></label>
+                  <textarea id="h-zprava" name="zprava" rows="3" maxlength="1000"></textarea>
+                </div>
+                <div class="medovnik" aria-hidden="true">
+                  <label for="h-web">Web</label>
+                  <input id="h-web" name="web" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="souhlas">
+                  <input type="checkbox" id="h-souhlas" name="souhlas" required>
+                  <label for="h-souhlas">Souhlasím se <a href="osobni-udaje.html">zpracováním osobních údajů</a>, abyste mi mohli odpovědět.</label>
+                </div>
+                <button class="tlacitko tlacitko--zelene" type="submit">Odeslat</button>
+                <div id="hospoda-zprava" class="zprava" role="status" tabindex="-1" hidden></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- R12 Patička -->
+  <footer class="paticka">
+    <div class="obal">
+      <p class="jmeno">Kobla Kvíz</p>
+      <p>Hospodský kvíz pro Prostějov a okolí</p>
+      <p><span data-kontakt="email">[DOPLNIT: e-mail]</span> · <span data-kontakt="telefon">[DOPLNIT: telefon]</span></p>
+      <p class="site"><span data-kontakt="facebook">[DOPLNIT: odkaz na Facebook]</span> <span data-kontakt="instagram">[DOPLNIT: odkaz na Instagram]</span></p>
+      <p><a href="osobni-udaje.html">Zpracování osobních údajů</a> · © <span data-rok>2026</span> Kobla Kvíz</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="assets/js/cesky.js"></script>
+  <script src="assets/js/kobla.js"></script>
+  <script src="assets/js/formulare.js"></script>
+  <script src="assets/js/uvod.js"></script>
 </body>
 </html>
