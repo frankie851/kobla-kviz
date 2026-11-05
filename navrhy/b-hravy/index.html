@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Návrh B – Hravý · Kobla Kvíz</title>
+  <link rel="stylesheet" href="../../assets/fonts/fredoka/fredoka.css">
+  <link rel="stylesheet" href="../../assets/fonts/nunito/nunito.css">
+  <style>
+    /* Návrh B – Hravý: barevné nálepky, tlusté obrysy, dobrá nálada */
+    :root {
+      --inkoust: #1d1442; --papir: #fff8e7; --bila: #ffffff;
+      --zluta: #ffd23f; --koral: #ff6b4a; --fialova: #6c4dff; --mata: #2ed1a2; --ruzova: #ff9ecf;
+      --tlumeny: #4a4270;
+      --obrys: 3px solid var(--inkoust); --stin: 5px 5px 0 var(--inkoust);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--papir); color: var(--inkoust); font: 400 1.0625rem/1.55 Nunito, system-ui, sans-serif;
+      background-image: radial-gradient(var(--inkoust) 1px, transparent 1.4px); background-size: 22px 22px; background-attachment: fixed;
+      background-color: var(--papir); }
+    body::before { content: ""; position: fixed; inset: 0; background: rgba(255,248,231,.9); z-index: -1; }
+    a { color: var(--fialova); font-weight: 700; }
+    :focus-visible { outline: 3px solid var(--fialova); outline-offset: 3px; border-radius: 8px; }
+    .obal { width: min(1120px, 100% - 32px); margin-inline: auto; }
+    .stitek-demo { position: fixed; right: 10px; bottom: 10px; z-index: 50; font: 700 .75rem Nunito, sans-serif; background: var(--bila); border: 2px solid var(--inkoust); padding: 3px 10px; border-radius: 99px; }
+    h1, h2, h3 { font-family: Fredoka, sans-serif; font-weight: 700; line-height: 1.05; margin: 0; }
+
+    .hlavicka { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 12px; }
+    .hlavicka nav { display: none; gap: 8px; }
+    .hlavicka nav a { text-decoration: none; color: var(--inkoust); padding: 8px 14px; border-radius: 99px; border: 2px solid transparent; }
+    .hlavicka nav a:hover { border-color: var(--inkoust); background: var(--bila); }
+    .logo-maly { height: 42px; width: auto; display: block; }
+
+    .uvod { display: grid; gap: 18px; padding: 4px 0 40px; }
+    .uvod h1 { font-size: clamp(2.6rem, 12vw, 5.4rem); letter-spacing: -.01em; }
+    .uvod h1 .kviz { display: inline-block; background: var(--zluta); padding: 0 .18em; border: var(--obrys); border-radius: 14px; transform: rotate(-3deg); box-shadow: var(--stin); }
+    .uvod .slogan { font-size: 1.2rem; margin: 0; max-width: 30ch; font-weight: 700; color: var(--tlumeny); }
+    .listek { background: var(--fialova); color: var(--bila); border: var(--obrys); border-radius: 22px; box-shadow: var(--stin); padding: 16px 18px; position: relative; transform: rotate(1.2deg); }
+    .listek::after { content: "★"; position: absolute; top: -18px; right: 18px; width: 44px; height: 44px; display: grid; place-items: center; background: var(--zluta); color: var(--inkoust);
+      border: var(--obrys); border-radius: 50%; font-size: 1.3rem; transform: rotate(12deg); }
+    .listek .nad { margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: #e6defd; }
+    .listek .kdy { margin: 2px 0; font: 700 1.55rem/1.15 Fredoka, sans-serif; }
+    .listek .kde { margin: 0; }
+    .listek .volno { display: inline-block; margin-top: 8px; background: var(--mata); color: var(--inkoust); font-weight: 800; padding: 2px 12px; border-radius: 99px; border: 2px solid var(--inkoust); }
+    .tlacitko { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px; background: var(--koral); color: var(--inkoust);
+      border: var(--obrys); border-radius: 16px; box-shadow: var(--stin); font: 700 1.2rem/1 Fredoka, sans-serif; text-decoration: none; cursor: pointer; transition: transform .12s, box-shadow .12s; }
+    .tlacitko:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--inkoust); }
+    .tlacitko:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--inkoust); }
+
+    section { padding: 48px 0; }
+    h2 { font-size: clamp(2rem, 8vw, 3.2rem); margin-bottom: 24px; }
+    h2 span { background: linear-gradient(transparent 58%, var(--barva, var(--zluta)) 58%); padding: 0 4px; }
+
+    .podniky { display: grid; gap: 22px; }
+    .podnik { background: var(--barva); border: var(--obrys); border-radius: 22px; box-shadow: var(--stin); padding: 18px; }
+    .podnik:nth-child(3n+1) { --barva: var(--zluta); transform: rotate(-1deg); }
+    .podnik:nth-child(3n+2) { --barva: var(--mata); transform: rotate(.8deg); }
+    .podnik:nth-child(3n) { --barva: var(--ruzova); transform: rotate(-.6deg); }
+    .podnik h3 { font-size: 1.5rem; }
+    .podnik .mesto { display: inline-block; margin: 8px 0 4px; background: var(--inkoust); color: var(--bila); padding: 2px 10px; border-radius: 99px; font-weight: 800; font-size: .85rem; }
+    .podnik .adresa { display: block; color: var(--inkoust); margin: 4px 0; }
+    .podnik p { margin: 0 0 12px; }
+    .terminy { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .terminy a { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; align-items: center; min-height: 48px; padding: 10px 14px; background: var(--bila);
+      color: var(--inkoust); border: 2px solid var(--inkoust); border-radius: 14px; text-decoration: none; font-weight: 700; }
+    .terminy a:hover { background: var(--papir); }
+    .terminy .stav { font-size: .9rem; color: #0c6b50; }
+    [data-stav="obsazeno"] .stav { color: #b3261e; }
+    [data-stav="zruseno"] a { opacity: .65; cursor: default; } [data-stav="zruseno"] .stav { color: var(--tlumeny); text-decoration: line-through; }
+
+    .kroky { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+    .kroky li { display: flex; gap: 14px; align-items: center; background: var(--bila); border: var(--obrys); border-radius: 18px; padding: 14px; }
+    .ikona { flex: none; width: 58px; height: 58px; border-radius: 16px; border: var(--obrys); display: grid; place-items: center; font: 700 1.7rem Fredoka, sans-serif; }
+    .kroky li:nth-child(1) .ikona { background: var(--zluta); } .kroky li:nth-child(2) .ikona { background: var(--mata); }
+    .kroky li:nth-child(3) .ikona { background: var(--ruzova); } .kroky li:nth-child(4) .ikona { background: var(--koral); }
+    .kroky b { font: 700 1.2rem Fredoka, sans-serif; display: block; }
+
+    .vysledky { background: var(--inkoust); color: var(--bila); border-radius: 28px; padding: 26px 20px; }
+    .vysledky h2 span { --barva: var(--fialova); }
+    .vysledky p { margin: -12px 0 16px; color: #d7d1f4; }
+    .vysledky ol { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 10px; }
+    .vysledky li { display: grid; grid-template-columns: 44px 1fr auto; align-items: center; background: #2c2363; border-radius: 14px; padding: 10px 14px; font-weight: 700; }
+    .vysledky li:nth-child(1) .poradi { background: var(--zluta); } .vysledky li:nth-child(2) .poradi { background: #e9e6f5; } .vysledky li:nth-child(3) .poradi { background: var(--koral); }
+    .vysledky .poradi { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; color: var(--inkoust); }
+    .vysledky a { color: var(--zluta); }
+
+    .panel { background: var(--bila); border: var(--obrys); border-radius: 26px; box-shadow: 8px 8px 0 var(--fialova), 8px 8px 0 3px var(--inkoust); padding: 22px 18px; max-width: 660px; }
+    .formular { display: grid; gap: 16px; }
+    .pole label { display: block; font-weight: 800; margin-bottom: 6px; }
+    .pole label span, .pole small { color: var(--tlumeny); font-weight: 600; font-size: .9rem; }
+    .pole small { display: block; margin-top: 4px; }
+    input, select, textarea { width: 100%; font: inherit; color: var(--inkoust); background: var(--papir); border: var(--obrys); border-radius: 14px; padding: 12px 14px; min-height: 52px; }
+    input:focus, select:focus, textarea:focus { outline: none; background: var(--bila); box-shadow: 4px 4px 0 var(--fialova); }
+    .souhlas { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; }
+    .souhlas input { width: 26px; height: 26px; min-height: 0; margin: 0; accent-color: var(--fialova); }
+    .formular .tlacitko { width: 100%; }
+    [data-zprava] { margin: 0; padding: 12px; background: var(--zluta); border: 2px solid var(--inkoust); border-radius: 12px; font-weight: 700; }
+    .dva { display: grid; gap: 16px; }
+    .prihlaska-uvod p { font-size: 1.15rem; font-weight: 700; color: var(--tlumeny); max-width: 28ch; }
+
+    footer { background: var(--zluta); border-top: var(--obrys); padding: 30px 0 64px; margin-top: 40px; }
+    footer .obal { display: grid; gap: 14px; }
+    footer a { color: var(--inkoust); }
+
+    @media (min-width: 760px) {
+      .hlavicka nav { display: flex; }
+      .uvod { grid-template-columns: 1.25fr 1fr; align-items: center; padding: 30px 0 60px; }
+      .uvod .akce { grid-column: 2; }
+      .podniky { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+      .kroky { grid-template-columns: repeat(2, 1fr); }
+      .vysledky { padding: 40px; }
+      .prihlaska { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: start; }
+      .dva { grid-template-columns: 1fr 1fr; }
+      .panel { padding: 32px; }
+      footer .obal { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <span class="stitek-demo">ukázková data</span>
+  <header class="obal hlavicka">
+    <svg class="logo-maly" viewBox="0 0 150 52" role="img" aria-label="Kobla Kvíz">
+      <path d="M6 6h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H24l-10 9v-9H6a6 6 0 0 1-6-6V12a6 6 0 0 1 6-6z" transform="translate(2 0)" fill="#6c4dff" stroke="#1d1442" stroke-width="3"/>
+      <text x="28" y="33" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="26" fill="#ffd23f">?</text>
+      <text x="62" y="32" font-family="Fredoka" font-weight="700" font-size="24" fill="#1d1442">Kobla</text>
+    </svg>
+    <nav aria-label="Hlavní menu">
+      <a href="#kde">Kde hrajeme</a><a href="#jak">Jak to probíhá</a><a href="#vysledky">Výsledky</a><a href="#prihlaska">Přihláška</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="obal uvod" style="padding-top:4px">
+      <div>
+        <h1>Kobla <span class="kviz">Kvíz</span></h1>
+        <p class="slogan" style="margin-top:14px">Hospodský kvíz, na který se těšíš celý týden.</p>
+      </div>
+      <div class="akce">
+        <div class="listek">
+          <p class="nad">Nejbližší kvíz</p>
+          <p class="kdy" data-hero="datumcas">…</p>
+          <p class="kde"><span data-hero="podnik"></span>, <span data-hero="mesto"></span></p>
+          <span class="volno" data-hero="volno"></span>
+        </div>
+        <a class="tlacitko" href="#prihlaska" data-hero-termin style="width:100%;margin-top:18px">Přihlásit tým</a>
+      </div>
+    </section>
+
+    <section id="kde">
+      <div class="obal">
+        <h2><span>Kde hrajeme</span></h2>
+        <div class="podniky" id="podniky"></div>
+      </div>
+    </section>
+    <template id="sablona-podnik">
+      <article class="podnik">
+        <h3 data-p="nazev"></h3>
+        <span class="mesto" data-p="mesto"></span>
+        <a class="adresa" data-p="adresa" href="#" target="_blank" rel="noopener"></a>
+        <p data-p="popis"></p>
+        <ul class="terminy" data-p-terminy></ul>
+      </article>
+    </template>
+    <template id="sablona-termin">
+      <li><a href="#prihlaska"><span data-t="datum"></span><span class="stav" data-t="stav"></span></a></li>
+    </template>
+
+    <section id="jak">
+      <div class="obal">
+        <h2><span style="--barva:var(--mata)">Jak to probíhá</span></h2>
+        <ol class="kroky">
+          <li><span class="ikona" aria-hidden="true">1</span><div><b>Sežeň partu</b>Tým má [DOPLNIT: kolik] lidí.</div></li>
+          <li><span class="ikona" aria-hidden="true">2</span><div><b>Přihlas tým</b>Tady na webu, zabere to minutu.</div></li>
+          <li><span class="ikona" aria-hidden="true">3</span><div><b>Hraj</b>[DOPLNIT: počet] kol otázek ze všeho možného.</div></li>
+          <li><span class="ikona" aria-hidden="true">4</span><div><b>Vyhraj</b>Nejlepší tři týmy berou [DOPLNIT: ceny].</div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="vysledky">
+      <div class="obal">
+        <div class="vysledky">
+          <h2><span>Poslední výsledky</span></h2>
+          <p data-vysledky-nadpis></p>
+          <ol id="vysledky-nahled"></ol>
+          <a href="#vysledky">Všechny výsledky →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="prihlaska">
+      <div class="obal prihlaska">
+        <div class="prihlaska-uvod">
+          <h2><span style="--barva:var(--ruzova)">Přihláška</span></h2>
+          <p>Vyplň to za minutu. Potvrzení ti přijde e-mailem.</p>
+        </div>
+        <div class="panel">
+          <form id="form-prihlaska" class="formular" novalidate>
+            <div class="pole">
+              <label for="f-termin">Termín</label>
+              <select id="f-termin" name="termin" required><option value="">Vyber termín</option></select>
+            </div>
+            <div class="pole">
+              <label for="f-tym">Název týmu</label>
+              <input id="f-tym" name="tym" required minlength="2" maxlength="40" autocomplete="off">
+            </div>
+            <div class="dva">
+              <div class="pole">
+                <label for="f-pocet">Počet hráčů</label>
+                <input id="f-pocet" name="pocet" type="number" inputmode="numeric" min="1" max="6" value="4" required aria-describedby="f-pocet-napoveda">
+                <small id="f-pocet-napoveda">Nejvíc 6 hráčů u stolu.</small>
+              </div>
+              <div class="pole">
+                <label for="f-kapitan">Jméno kapitána</label>
+                <input id="f-kapitan" name="kapitan" required autocomplete="name">
+              </div>
+            </div>
+            <div class="dva">
+              <div class="pole">
+                <label for="f-email">E-mail</label>
+                <input id="f-email" name="email" type="email" required autocomplete="email">
+              </div>
+              <div class="pole">
+                <label for="f-telefon">Telefon</label>
+                <input id="f-telefon" name="telefon" type="tel" required autocomplete="tel">
+              </div>
+            </div>
+            <div class="pole">
+              <label for="f-poznamka">Poznámka <span>(nepovinné)</span></label>
+              <textarea id="f-poznamka" name="poznamka" rows="3" maxlength="500"></textarea>
+            </div>
+            <div class="souhlas">
+              <input type="checkbox" id="f-souhlas" name="souhlas" required>
+              <label for="f-souhlas">Souhlasím se <a href="../../osobni-udaje.html">zpracováním osobních údajů</a>.</label>
+            </div>
+            <button class="tlacitko" type="submit">Přihlásit tým</button>
+            <p data-zprava role="status" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="obal">
+      <div><strong style="font:700 1.4rem Fredoka,sans-serif">Kobla Kvíz</strong><br>Hospodský kvíz pro Prostějov a okolí.</div>
+      <div>[DOPLNIT: e-mail]<br>[DOPLNIT: telefon]</div>
+      <div><a href="../../osobni-udaje.html">Zpracování osobních údajů</a><br>© <span data-rok></span> Kobla Kvíz</div>
+    </div>
+  </footer>
+  <script src="../../assets/js/cesky.js"></script>
+  <script src="../demo-plnic.js"></script>
+</body>
+</html>
