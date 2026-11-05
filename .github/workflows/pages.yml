@@ -1,0 +1,49 @@
+# Nasazení webu na GitHub Pages.
+# Spustí se samo po každé změně v hlavní větvi (main), nebo ručně v záložce Actions.
+name: Nasazení na GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Vždy běží jen jedno nasazení, novější počká.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  nasazeni:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Stáhnout repozitář
+        uses: actions/checkout@v4
+
+      # Na web jde jen to, co je potřeba. Dokumenty, skript a testy zůstávají jen v repozitáři.
+      - name: Připravit složku webu
+        run: |
+          mkdir _site
+          rsync -a ./ _site/ \
+            --exclude '.git' --exclude '.github' --exclude '_site' \
+            --exclude 'docs' --exclude 'prompts' --exclude 'tests' --exclude 'apps-script' \
+            --exclude '*.md' --exclude 'node_modules'
+
+      - name: Nastavit Pages
+        uses: actions/configure-pages@v5
+
+      - name: Nahrát web
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Zveřejnit
+        id: deploy
+        uses: actions/deploy-pages@v4
