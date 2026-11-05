@@ -2,6 +2,28 @@
 Nejnovější nahoře. Každé rozhodnutí jednou; pozdější změna = nový záznam s odkazem na původní.
 Agent: sem zapisuj svá rozhodnutí a předpoklady (D-006 a dál). Předpoklad, který má David potvrdit, označ „předpoklad k potvrzení“.
 
+## D-016 · 2026-11-05 · Logo, favicon a obrázek pro sdílení
+- **Rozhodnutí:** `assets/img/logo.svg` má text převedený na křivky (nástroj `opentype.js` mimo repozitář), takže nepotřebuje písmo a funguje i jako samostatný soubor. Favicon je kulatý bordó odznak s „K“ (`favicon.svg` + `favicon-32.png` + `apple-touch-icon.png`). Obrázek pro sdílení `sdileni.png` 1200×630. PNG jsem vyrobil přes Playwright (prohlížeč bez okna) mimo repozitář.
+- **Pozor:** `og:image` má pevnou adresu `https://frankie851.github.io/kobla-kviz/…`. Při vlastní doméně nebo přesunu na organizaci se musí změnit v hlavičkách stránek.
+- **Kdo:** agent.
+
+## D-015 · 2026-11-05 · Kontakty v config.js, menu, nezlomitelné mezery
+- **Rozhodnutí:** Davidovy kontakty (e-mail, telefon, Facebook, Instagram) jsou na jednom místě v `config.js` (`KONTAKT`) a web je doplní do patičky, sekce Kontakt, zásad osobních údajů i chybových hlášek. Prázdné = `[DOPLNIT: …]`. Jméno organizátora a správce údajů je zatím `[DOPLNIT]` přímo v HTML.
+- **Proč:** David pak mění kontakt jen na jednom místě. CLAUDE.md popisuje `config.js` jako adresu skriptu, rozšíření nemění to, co David dostane.
+- **Menu:** na mobilu je schované pod tlačítkem *Menu*, aby bylo tlačítko *Přihlásit tým* vidět bez posouvání (K2).
+- **Mezery:** nezlomitelné mezery po jednopísmenných předložkách doplňuje `cesky.js` i do textů, které se načtou později.
+- **Kdo:** agent.
+
+## D-014 · 2026-11-05 · Startovné za osobu (potvrzeno)
+- **Rozhodnutí:** `startovne_kc` je cena **za osobu**. Potvrzuje předpoklad D-010.
+- **Kdo:** David.
+
+## D-013 · 2026-11-05 · Zvolený design: C – Pivní etiketa
+- **Rozhodnutí:** web bude ve stylu návrhu C (krémový papír, bordó, tmavě zelená, zlatá; písma Alfa Slab One + Bitter; logo jako oválná etiketa se stuhou). Úpravy podle Davida:
+  - na počítači nenechávat po stranách loga zbytečně prázdné místo (úvod na širokém displeji ve dvou sloupcích: logo vlevo, nejbližší kvíz a tlačítko vpravo),
+  - text „Prostějov a okolí“ v logu vede po elipse souběžně s okrajem etikety a nezasahuje do čar.
+- **Kdo:** David.
+
 ## D-012 · 2026-11-05 · Zástupná stránka osobních údajů
 - **Rozhodnutí:** `osobni-udaje.html` zatím jen zástupný text, aby odkaz ze souhlasu ve formuláři nikam nevedl naprázdno. Plný text (R11) přijde ve Fázi 2.
 - **Kdo:** agent.

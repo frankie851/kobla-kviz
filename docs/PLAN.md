@@ -12,15 +12,15 @@ Agent: po dokončení kroku ho odškrtni (☐ → ☑) a připiš datum. Pořad�
 - ☑ Rozcestník `navrhy/index.html` (náhled + 2 věty ke každému směru + odkaz) (2026-11-05)
 - ☑ Snímky na 390 px a 1280 px do `navrhy/nahledy/`, sám je prohlédni a oprav rozbité (2026-11-05)
 - ☑ HANDOFF.md aktualizovat (2026-11-05)
-**ZASTÁVKA 1:** David vybere směr (nebo kombinaci). Zapiš volbu do DECISIONS.md.
+**ZASTÁVKA 1:** David vybere směr (nebo kombinaci). Zapiš volbu do DECISIONS.md. ☑ David vybral C (D-013)
 
 ## Fáze 2 – Celý web ve zvoleném stylu (demo režim)
-- ☐ Finální logo, favicon, obrázek pro sdílení 1200×630
-- ☐ `index.html` se sekcemi R1–R8
-- ☐ `vysledky.html` (R9), `fotky.html` (R10), `osobni-udaje.html` (R11), patička (R12)
-- ☐ Formuláře (přihláška, hospody) s validací na webu a demo odesláním
-- ☐ Texty s `[DOPLNIT: …]`, česká typografie a skloňování
-- ☐ Kontrola na 390 / 768 / 1280 px
+- ☑ Finální logo, favicon, obrázek pro sdílení 1200×630 (2026-11-05)
+- ☑ `index.html` se sekcemi R1–R8 (2026-11-05)
+- ☑ `vysledky.html` (R9), `fotky.html` (R10), `osobni-udaje.html` (R11), patička (R12) (2026-11-05)
+- ☑ Formuláře (přihláška, hospody) s validací na webu a demo odesláním (2026-11-05)
+- ☑ Texty s `[DOPLNIT: …]`, česká typografie a skloňování (2026-11-05)
+- ☑ Kontrola na 390 / 768 / 1280 px (2026-11-05)
 
 ## Fáze 3 – Skript a návod
 - ☐ `apps-script/Code.gs`: příprava listů, veřejná data (GET), akce `prihlaska` a `hospoda` (POST), zámek, mezipaměť, e-maily, Telegram, list Chyby
