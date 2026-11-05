@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Výsledky – Kobla Kvíz</title>
+  <meta name="description" content="Pořadí týmů a body ze všech odehraných večerů Kobla Kvízu.">
+  <meta name="theme-color" content="#1f3d2b">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:title" content="Výsledky – Kobla Kvíz">
+  <meta property="og:description" content="Pořadí týmů a body ze všech odehraných večerů Kobla Kvízu.">
+  <meta property="og:image" content="https://frankie851.github.io/kobla-kviz/assets/img/sdileni.png">
+  <link rel="stylesheet" href="assets/css/styl.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <header class="pruh">
+    <div class="obal">
+      <a class="domu" href="./"><img src="assets/img/favicon.svg" alt="" width="32" height="32">Kobla Kvíz</a>
+      <button class="menu-tlacitko" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav id="menu" class="menu" aria-label="Hlavní menu">
+        <ul>
+          <li><a href="./#kde">Kde hrajeme</a></li>
+          <li><a href="./#prihlaska">Přihláška</a></li>
+          <li><a href="./#jak">Jak to probíhá</a></li>
+          <li><a href="vysledky.html" aria-current="page">Výsledky</a></li>
+          <li data-fotky-odkaz hidden><a href="fotky.html">Fotky</a></li>
+          <li><a href="./#dotazy">Dotazy</a></li>
+          <li><a href="./#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="obsah">
+    <div class="obal">
+      <div class="hlava-stranky">
+        <h1>Výsledky</h1>
+        <p>Pořadí týmů ze všech odehraných kvízů, nejnovější nahoře.</p>
+      </div>
+      <div class="filtr">
+        <label for="filtr-podnik">Podnik</label>
+        <select id="filtr-podnik" disabled><option value="">Všechny podniky</option></select>
+      </div>
+      <div id="vysledky-seznam" aria-live="polite">
+        <div class="vecer" aria-hidden="true"><span class="kostra kostra--svetla kostra--nadpis"></span><span class="kostra kostra--svetla"></span><span class="kostra kostra--svetla"></span></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- R12 Patička -->
+  <footer class="paticka">
+    <div class="obal">
+      <p class="jmeno">Kobla Kvíz</p>
+      <p>Hospodský kvíz pro Prostějov a okolí</p>
+      <p><span data-kontakt="email">[DOPLNIT: e-mail]</span> · <span data-kontakt="telefon">[DOPLNIT: telefon]</span></p>
+      <p class="site"><span data-kontakt="facebook">[DOPLNIT: odkaz na Facebook]</span> <span data-kontakt="instagram">[DOPLNIT: odkaz na Instagram]</span></p>
+      <p><a href="osobni-udaje.html">Zpracování osobních údajů</a> · © <span data-rok>2026</span> Kobla Kvíz</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="assets/js/cesky.js"></script>
+  <script src="assets/js/kobla.js"></script>
+  <script src="assets/js/vysledky.js"></script>
+</body>
+</html>

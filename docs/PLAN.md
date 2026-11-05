@@ -12,22 +12,22 @@ Agent: po dokončení kroku ho odškrtni (☐ → ☑) a připiš datum. Pořad�
 - ☑ Rozcestník `navrhy/index.html` (náhled + 2 věty ke každému směru + odkaz) (2026-11-05)
 - ☑ Snímky na 390 px a 1280 px do `navrhy/nahledy/`, sám je prohlédni a oprav rozbité (2026-11-05)
 - ☑ HANDOFF.md aktualizovat (2026-11-05)
-**ZASTÁVKA 1:** David vybere směr (nebo kombinaci). Zapiš volbu do DECISIONS.md.
+**ZASTÁVKA 1:** David vybere směr (nebo kombinaci). Zapiš volbu do DECISIONS.md. ☑ David vybral C (D-013)
 
 ## Fáze 2 – Celý web ve zvoleném stylu (demo režim)
-- ☐ Finální logo, favicon, obrázek pro sdílení 1200×630
-- ☐ `index.html` se sekcemi R1–R8
-- ☐ `vysledky.html` (R9), `fotky.html` (R10), `osobni-udaje.html` (R11), patička (R12)
-- ☐ Formuláře (přihláška, hospody) s validací na webu a demo odesláním
-- ☐ Texty s `[DOPLNIT: …]`, česká typografie a skloňování
-- ☐ Kontrola na 390 / 768 / 1280 px
+- ☑ Finální logo, favicon, obrázek pro sdílení 1200×630 (2026-11-05)
+- ☑ `index.html` se sekcemi R1–R8 (2026-11-05)
+- ☑ `vysledky.html` (R9), `fotky.html` (R10), `osobni-udaje.html` (R11), patička (R12) (2026-11-05)
+- ☑ Formuláře (přihláška, hospody) s validací na webu a demo odesláním (2026-11-05)
+- ☑ Texty s `[DOPLNIT: …]`, česká typografie a skloňování (2026-11-05)
+- ☑ Kontrola na 390 / 768 / 1280 px (2026-11-05)
 
 ## Fáze 3 – Skript a návod
-- ☐ `apps-script/Code.gs`: příprava listů, veřejná data (GET), akce `prihlaska` a `hospoda` (POST), zámek, mezipaměť, e-maily, Telegram, list Chyby
-- ☐ Testy v `tests/` (kapacita, náhradník, souběh, uzávěrka, duplicita, validace, výběr veřejných dat bez osobních údajů, selhání Telegramu)
-- ☐ Ověřit z dokumentace: nasazení web app, volání z prohlížeče (CORS), denní limity e-mailů, chat ID u Telegramu — zjištění do DECISIONS.md
-- ☐ `NAVOD.md` (nastavení, zkušební přihláška, každodenní správa, časté problémy)
-- ☐ HANDOFF.md aktualizovat
+- ☑ `apps-script/Code.gs`: příprava listů, veřejná data (GET), akce `prihlaska` a `hospoda` (POST), zámek, mezipaměť, e-maily, Telegram, list Chyby (2026-11-05)
+- ☑ Testy v `tests/` (kapacita, náhradník, souběh, uzávěrka, duplicita, validace, výběr veřejných dat bez osobních údajů, selhání Telegramu) (2026-11-05)
+- ☑ Ověřit z dokumentace: nasazení web app, volání z prohlížeče (CORS), denní limity e-mailů, chat ID u Telegramu — zjištění do DECISIONS.md (2026-11-05)
+- ☑ `NAVOD.md` (nastavení, zkušební přihláška, každodenní správa, časté problémy) (2026-11-05)
+- ☑ HANDOFF.md aktualizovat (2026-11-05)
 **ZASTÁVKA 2:** David provede ruční nastavení podle NAVOD.md a pošle adresu skriptu.
 
 ## Fáze 4 – Napojení a ověření
@@ -43,4 +43,4 @@ Agent: po dokončení kroku ho odškrtni (☐ → ☑) a připiš datum. Pořad�
 - ☐ HANDOFF.md a závěrečná zpráva
 
 ## Stav
-Poslední aktualizace: 2026-11-05 · Aktuální fáze: ZASTÁVKA 1 (čeká se na Davidův výběr designu) · Blokováno: výběr designu, sloučení PR, zapnutí Pages
+Poslední aktualizace: 2026-11-05 · Aktuální fáze: ZASTÁVKA 2 (David nastavuje tabulku, skript a Telegram) · Blokováno: adresa skriptu od Davida
